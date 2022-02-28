@@ -5,6 +5,12 @@ createGrid(16);
 const reset = document.querySelector('.reset');
 reset.addEventListener('click', resetGrid);
 
+const black = document.querySelector('.black');
+black.addEventListener('click', trailMouseBlack);
+
+const rainbow = document.querySelector('.rainbow');
+rainbow.addEventListener('click', trailMouseRainbow);
+
 function createGrid(number) {
     let i = 0;
     while (i < number) {
@@ -21,12 +27,24 @@ function createGrid(number) {
             j++;
         }
     }
-    const grids = document.querySelectorAll('.grid-box');
+    trailMouseBlack();
+}
 
+function trailMouseBlack() {
+    const grids = document.querySelectorAll('.grid-box');
     grids.forEach(grid => {
-        grid.addEventListener('mouseover', () => grid.style.backgroundColor = 'blue');
+        grid.addEventListener('mouseover', () => grid.style.backgroundColor = 'black');
     });
 }
+
+function trailMouseRainbow() {
+    const grids = document.querySelectorAll('.grid-box');
+    grids.forEach(grid => {
+        grid.addEventListener('mouseover', () => grid.style.backgroundColor = `rgb(${randomColors()}, ${randomColors()}, ${randomColors()})`);
+    });
+}
+
+
 
 function resetGrid() {
     const grids = document.querySelectorAll('.grid-box');
@@ -40,6 +58,11 @@ function promptUser() {
         a = prompt("How many boxes for each side?");
     } while (a > 100 || a < 1);
 
+    removeGrid();
+    createGrid(a);
+}
+
+function removeGrid() {
     const grids = document.querySelectorAll('.grid-box');
     const gridRows = document.querySelectorAll('.grid-row');
     grids.forEach(grid => {
@@ -48,6 +71,8 @@ function promptUser() {
     gridRows.forEach(gridRow => {
         gridRow.remove();
     })
-    createGrid(a);
-    // removeGrid();
+}
+
+function randomColors() {
+    return Math.floor(Math.random() * 255) + 1;
 }
