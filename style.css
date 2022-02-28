@@ -4,6 +4,48 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(204, 40%, 49%);
+    padding: 20px;
+}
+
+h1 {
+    color: rgb(240, 196, 0);
+    margin: 20px;
+    font-size: 3em;
+    margin-bottom: 0;
+}
+
+.buttons {
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+}
+
+.selected-color {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    height: 50px;
+    width: 90px;
+    font-size: 1em;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.button.new {
+    width: 200px;
+}
+
 .grid-container {
     display: flex;
     flex-direction: column;
@@ -12,7 +54,7 @@
     border: 1px solid black;
     width: 500px;
     height: 500px;
-    margin: auto;
+    margin: 10px auto;
 }
 
 .grid-row {
