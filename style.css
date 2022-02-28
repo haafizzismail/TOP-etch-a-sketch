@@ -23,7 +23,7 @@
     background-color: black;
 }
 
-.grid-column {
+.grid-box {
     flex: 1;
     background-color: white;
 }

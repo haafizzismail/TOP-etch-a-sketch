@@ -11,11 +11,16 @@ function createGrid(row, column) {
         let j = 0;
         while (j < column) {
             const grid = document.createElement('div');
-            grid.classList.add('grid-column');
+            grid.classList.add('grid-box');
             gridRow.appendChild(grid);
             j++;
         }
     }
 }
 
-createGrid(16, 16);
+createGrid(60, 60);
+const grids = document.querySelectorAll('.grid-box');
+grids.forEach(grid => {
+    grid.addEventListener('mouseover', () => grid.style.backgroundColor = 'blue');
+})
+
