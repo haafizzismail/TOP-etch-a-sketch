@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    gap: 1px;
+    border: 1px solid black;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+}
+
+.grid-row {
+    display: flex;
+    gap: 1px;
+    flex: 1;
+    width: 100%;
+    background-color: black;
+}
+
+.grid-column {
+    flex: 1;
+    background-color: white;
+}
