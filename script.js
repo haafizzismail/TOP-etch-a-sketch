@@ -5,11 +5,20 @@ createGrid(16);
 const reset = document.querySelector('.reset');
 reset.addEventListener('click', resetGrid);
 
-const black = document.querySelector('.black');
-black.addEventListener('click', trailMouseBlack);
+const color = document.querySelector('.color');
+color.addEventListener('click', trailMouseColor);
 
 const rainbow = document.querySelector('.rainbow');
 rainbow.addEventListener('click', trailMouseRainbow);
+
+const colorpicker = document.querySelector('.colorpicker')
+colorpicker.addEventListener('input', colorPicker);
+
+const eraser = document.querySelector('.eraser')
+eraser.addEventListener('click', trailMouseWhite);
+
+const newCanvas = document.querySelector('.new')
+newCanvas.addEventListener('click', promptUser);
 
 function createGrid(number) {
     let i = 0;
@@ -27,13 +36,13 @@ function createGrid(number) {
             j++;
         }
     }
-    trailMouseBlack();
+    trailMouseColor();
 }
 
-function trailMouseBlack() {
+function trailMouseColor() {
     const grids = document.querySelectorAll('.grid-box');
     grids.forEach(grid => {
-        grid.addEventListener('mouseover', () => grid.style.backgroundColor = 'black');
+        grid.addEventListener('mouseover', () => grid.style.backgroundColor = colorpicker.value);
     });
 }
 
@@ -44,12 +53,23 @@ function trailMouseRainbow() {
     });
 }
 
+function trailMouseWhite() {
+    const grids = document.querySelectorAll('.grid-box');
+    grids.forEach(grid => {
+        grid.addEventListener('mouseover', () => grid.style.backgroundColor = 'white');
+    });
+}
 
+function colorPicker() {
+    const grids = document.querySelectorAll('.grid-box');
+    grids.forEach(grid => {
+        grid.addEventListener('mouseover', (event) => event.target.style.backgroundColor = colorpicker.value)
+    });
+}
 
 function resetGrid() {
     const grids = document.querySelectorAll('.grid-box');
     grids.forEach(grid => grid.style.backgroundColor = 'white');
-    promptUser();
 }
 
 function promptUser() {
@@ -76,3 +96,4 @@ function removeGrid() {
 function randomColors() {
     return Math.floor(Math.random() * 255) + 1;
 }
+
