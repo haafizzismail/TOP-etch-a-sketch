@@ -18,9 +18,15 @@ function createGrid(row, column) {
     }
 }
 
-createGrid(60, 60);
+function resetGrid() {
+    grids.forEach(grid => grid.style.backgroundColor = 'white');
+}
+
+createGrid(16, 16);
 const grids = document.querySelectorAll('.grid-box');
 grids.forEach(grid => {
     grid.addEventListener('mouseover', () => grid.style.backgroundColor = 'blue');
-})
+});
 
+const reset = document.querySelector('.reset');
+reset.addEventListener('click', resetGrid);
